@@ -1,0 +1,27 @@
+FROM debian:bullseye-slim
+
+ARG RUN_MODE=production
+ENV TZ=Etc/UTC \
+    RUN_MODE=${RUN_MODE} \
+    RUST_LOG=info
+
+EXPOSE 3000
+
+# Install some Debian packages
+RUN apt update && \
+    apt-get -y install --no-install-recommends ca-certificates tzdata && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    # Set up the app user
+    groupadd {{project-name}} && \
+    useradd -g {{project-name}} {{project-name}} && \
+    mkdir -p /usr/src/app && \
+    chown {{project-name}}:{{project-name}} /usr/src/app
+
+COPY --chown={{project-name}}:{{project-name}} target/release/{{project-name}} /usr/src/app/{{project-name}}
+COPY --chown={{project-name}}:{{project-name}} config/*.toml /usr/src/app/config/
+
+USER {{project-name}}
+WORKDIR /usr/src/app
+
+CMD ["./{{project-name}}"]

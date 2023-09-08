@@ -1,10 +1,11 @@
 //! # {{project-description}}
 #![forbid(unsafe_code)]
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
+/// HTTP entry points
+pub mod http;
+
+/// Application config
+pub mod config;
+
+/// App initialization
+pub mod init;

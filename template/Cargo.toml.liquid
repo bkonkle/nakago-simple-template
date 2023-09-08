@@ -12,6 +12,7 @@ publish = false # TODO: Remove when ready to publish
 
 [dependencies]
 anyhow = "1.0"
+async-trait = "0.1"
 axum = { version = "0.6", features = ["ws", "macros"] }
 chrono = { version = "0.4.19", features = ["serde"] }
 fake = { version = "2.4", features = ['derive', 'chrono', 'http', 'uuid'] }
@@ -50,6 +51,8 @@ futures-util = { version = "0.3", default-features = false, features = [
     "std",
 ] }
 hyper-tls = "0.5"
+maplit = { version = "1" }
 mockall = "0.11"
 pretty_assertions = "1.2"
+tokio-tungstenite = "0.20"
 url = "2.0.0"

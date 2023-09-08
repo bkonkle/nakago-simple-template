@@ -72,3 +72,9 @@ script = '''
     cargo spellcheck fix
     cargo spellcheck reflow
 '''
+
+[tasks.run]
+env = { "RUST_LOG" = "info,sqlx::query=warn" }
+command = "cargo"
+args = ["run"]
+watch = true

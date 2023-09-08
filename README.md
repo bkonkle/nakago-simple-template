@@ -21,7 +21,7 @@
 
 # Template - Nakago Example: Simple
 
-A template for [cargo generate](https://github.com/cargo-generate/cargo-generate) that demonstrates simple usage of the Nakago application framework for HTTP services.
+A template for [cargo generate](https://github.com/cargo-generate/cargo-generate) that demonstrates simple usage of the Nakago application framework for Axum HTTP services.
 
 ## Usage
 

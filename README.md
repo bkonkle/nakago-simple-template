@@ -34,7 +34,7 @@ cargo install cargo-generate
 Then generate a new project with this template:
 
 ```sh
-cargo generate bkonkle/nakago-example-simple-template
+cargo generate bkonkle/nakago-simple-template
 ```
 
 ## For More Information

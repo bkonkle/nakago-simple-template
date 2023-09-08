@@ -18,10 +18,6 @@ impl State for AppState {}
 /// Provide the AppState for Axum
 ///
 /// **Provides:** `AppState`
-///
-/// **Depends on:**
-///   - `Tag(AuthState)`
-///   - `Tag(UsersService)`
 #[derive(Default)]
 pub struct ProvideAppState {}
 

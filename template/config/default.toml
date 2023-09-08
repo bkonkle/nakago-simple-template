@@ -2,12 +2,3 @@
 
 run_mode = "development"
 port = 8000
-
-[auth]
-url = "https://{{project-name}}-dev.oauth-service.com"
-audience = "localhost"
-
-[auth.client]
-
-[dynamo]
-url = "http://localhost:4666"

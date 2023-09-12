@@ -10,7 +10,7 @@ use nakago_derive::Provider;
 pub const STATE: Tag<AppState> = Tag::new("AppState");
 
 /// The top-level Application State
-#[derive(Default, Clone, FromRef)]
+#[derive(Clone, FromRef)]
 pub struct AppState {}
 
 impl State for AppState {}
@@ -25,6 +25,6 @@ pub struct ProvideAppState {}
 #[async_trait]
 impl Provider<AppState> for ProvideAppState {
     async fn provide(self: Arc<Self>, _i: Inject) -> InjectResult<Arc<AppState>> {
-        Ok(Arc::new(AppState::default()))
+        Ok(Arc::new(AppState{}))
     }
 }

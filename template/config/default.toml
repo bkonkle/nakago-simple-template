@@ -1,4 +1,0 @@
-# Default settings
-
-run_mode = "development"
-port = 8000

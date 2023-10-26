@@ -14,9 +14,11 @@ Cargo.lock
 .DS_Store
 
 # Config files
+.env
 .envrc
 .envrc.*
 !.envrc.example
 config.toml
+config.*.toml
 
 lcov.info

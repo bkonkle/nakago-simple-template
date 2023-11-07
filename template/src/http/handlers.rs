@@ -15,7 +15,7 @@ pub struct HealthResponse {
 }
 
 /// Handle health check requests
-pub async fn health_handler() -> Json<HealthResponse> {
+pub async fn health() -> Json<HealthResponse> {
     Json(HealthResponse {
         code: 200,
         success: true,

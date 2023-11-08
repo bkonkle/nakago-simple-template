@@ -1,9 +1,6 @@
 use axum::Json;
 use serde::{Deserialize, Serialize};
 
-// Health
-// ------
-
 /// A Health Check Response
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct HealthResponse {
@@ -15,7 +12,7 @@ pub struct HealthResponse {
 }
 
 /// Handle health check requests
-pub async fn health() -> Json<HealthResponse> {
+pub async fn health_check() -> Json<HealthResponse> {
     Json(HealthResponse {
         code: 200,
         success: true,

@@ -1,10 +1,7 @@
-/// HTTP handlers
-pub mod handlers;
+/// Health handlers
+pub mod health;
 
-/// Axum routes
-pub mod routes;
+/// Init all handlers
+pub mod init;
 
-/// Axum Application State
-pub mod state;
-
-pub use state::State;
+pub use init::Init;

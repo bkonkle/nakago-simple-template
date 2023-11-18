@@ -1,5 +1,5 @@
-use nakago::{config, inject, EventType};
-use nakago_axum::{config::default_loaders, AxumApplication};
+use nakago::{inject, EventType};
+use nakago_axum::{config, AxumApplication};
 
 use crate::{
     config::{Config, CONFIG},
@@ -10,7 +10,7 @@ use crate::{
 pub async fn app() -> inject::Result<AxumApplication<Config>> {
     let mut app = AxumApplication::default().with_config_tag(&CONFIG);
 
-    app.on(&EventType::Load, config::AddLoaders::new(default_loaders()));
+    app.on(&EventType::Load, config::AddLoaders::default());
 
     app.on(&EventType::Init, http::Init::default());
 

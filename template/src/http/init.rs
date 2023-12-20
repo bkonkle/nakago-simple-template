@@ -1,6 +1,6 @@
 use async_trait::async_trait;
-use hyper::Method;
-use nakago::{inject, Hook, Inject};
+use axum::{routing::get, Router};
+use nakago::{hooks, Hook, Inject};
 use nakago_axum::routes;
 
 use super::health;
@@ -11,11 +11,9 @@ pub struct Init {}
 
 #[async_trait]
 impl Hook for Init {
-    async fn handle(&self, i: Inject) -> inject::Result<()> {
+    async fn handle(&self, i: Inject) -> hooks::Result<()> {
         i.handle(routes::Init::new(
-            Method::GET,
-            "/health",
-            health::health_check,
+            Router::new().route("/health", get(health::health_check)),
         ))
         .await?;
 

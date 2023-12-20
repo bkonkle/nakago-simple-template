@@ -1,5 +1,5 @@
-use axum::extract::FromRef;
 use nakago::Tag;
+use nakago_derive::FromRef;
 use serde::Serialize;
 use serde_derive::Deserialize;
 

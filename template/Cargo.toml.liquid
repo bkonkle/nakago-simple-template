@@ -13,32 +13,23 @@ publish = false # TODO: Remove when ready to publish
 [dependencies]
 anyhow = "1.0"
 async-trait = "0.1"
-axum = { version = "0.6", features = ["ws", "macros"] }
+axum = { version = "0.7", features = ["macros"] }
 chrono = { version = "0.4.19", features = ["serde"] }
 fake = { version = "2.4", features = ['derive', 'chrono', 'http', 'uuid'] }
 figment = { version = "0.10", features = ["env", "toml", "yaml", "json"] }
 futures = "0.3"
 hyper = "0.14"
 log = "0.4"
-nakago = "0.14"
-nakago-axum = "0.16"
-nakago-derive = "0.8"
+nakago = "0.19"
+nakago-axum = "0.19"
+nakago-derive = "0.19"
 pico-args = "0.5.0"
 pretty_env_logger = "0.5"
 rand = "0.8"
-sea-orm = { version = "0.12", features = [
-    "macros",
-    "mock",
-    "runtime-tokio-rustls",
-    "sqlx-postgres",
-    "with-chrono",
-    "with-json",
-], default-features = false }
 serde = { version = "1.0", features = ["derive"] }
 serde_derive = "1.0"
 serde_json = "1.0"
 tokio = { version = "1", features = ["full"] }
-tokio-stream = "0.1"
 ulid = "1.0"
 
 [dev-dependencies]
@@ -53,5 +44,4 @@ hyper-tls = "0.5"
 maplit = { version = "1" }
 mockall = "0.11"
 pretty_assertions = "1.2"
-tokio-tungstenite = "0.20"
 url = "2.0.0"

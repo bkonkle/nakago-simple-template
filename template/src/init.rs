@@ -1,18 +1,22 @@
-use nakago::{inject, EventType};
-use nakago_axum::{config, AxumApplication};
+use std::path::PathBuf;
 
-use crate::{
-    config::{Config, CONFIG},
-    http,
-};
+use nakago::{Inject, Result};
+use nakago_axum::config;
 
-/// Create a default AxumApplication instance
-pub async fn app() -> inject::Result<AxumApplication<Config>> {
-    let mut app = AxumApplication::default().with_config_tag(&CONFIG);
+use crate::config::Config;
 
-    app.on(&EventType::Load, config::AddLoaders::default());
+/// Create a dependency injection container for the top-level application
+pub async fn app(config_path: Option<PathBuf>) -> Result<Inject> {
+    let i = Inject::default();
 
-    app.on(&EventType::Init, http::Init::default());
+    // Add config loaders before the Config is initialized
+    config::add_default_loaders(&i).await?;
 
-    Ok(app)
+    // Initialize the Config
+    nakago_figment::Init::<Config>::default()
+        .maybe_with_path(config_path)
+        .init(&i)
+        .await?;
+
+    Ok(i)
 }

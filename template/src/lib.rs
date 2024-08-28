@@ -1,4 +1,4 @@
-//! # {{project-description}}
+//! # A simple server
 #![forbid(unsafe_code)]
 
 /// HTTP entry points

@@ -78,7 +78,15 @@ cargo make setup
 
 ### Running the Local dev server
 
-Use `cargo` to run the dev server locally:
++First, create a local config file:
++
++```sh
++cp config.toml.example config.toml
++```
++
++Then, update the `.env` file with your own settings.
++
++Now you can use `cargo` to run the dev server locally:
 
 ```sh
 cargo make run
